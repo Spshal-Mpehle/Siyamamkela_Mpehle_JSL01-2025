@@ -1,15 +1,21 @@
 // initialData.js
 
 export async function initialTasks() {
+  const API_URL = "https://jsl-kanban-api.vercel.app/";
+
   try {
-    const response = await fetch("https://jsl-kanban-api.vercel.app/");
+    const response = await fetch(API_URL);
+
     if (!response.ok) {
-      throw new Error("Network error: " + response.status);
+      throw new Error(
+        `Network response was not ok (Status: ${response.status})`
+      );
     }
+
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error("Fetch error:", error);
+    console.error("Error fetching initial tasks:", error.message);
     return null;
   }
 }

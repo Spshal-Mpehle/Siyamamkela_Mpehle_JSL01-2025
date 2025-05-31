@@ -8,13 +8,7 @@
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;1,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styling.css" />
-    <link
-      rel="icon"
-      href="./assets/favicon.svg"
-      sizes="32x32"
-      type="image/x-icon"
-    />
+    <!-- <link rel="stylesheet" href="./styling.css" /> -->
     <script defer src="./scripts.js" type="module"></script>
 
     <title>Kanban Task Management</title>
@@ -42,13 +36,8 @@
       </div>
 
       <div class="hide-sidebar-div">
-        <button id="hide-sidebar-btn" class="hide-sidebar-btn">
-          <img
-            src="./assets/favicon.svg"
-            alt="hide-sidebar"
-            class="hide-sidebar-icon"
-          />
-        </button>
+        <button id="hide-sidebar-btn" class="hide-sidebar-btn" aria-label="Hide sidebar">
+          &times;
       </div>
     </div>
   </nav>
@@ -64,17 +53,6 @@
           <h2 class="header-board-name" id="header-board-name">
             Launch Career
           </h2>
-        <div>
-        <label>
-          <input type="checkbox" id="theme-toggle"> Toggle Dark Mode
-        </label>
-    <button id="add-task-btn" class="add-task-btn">
-      <span class="add-task-text">Add Task</span>
-    </button>
-    <div id="edit-btn" class="edit-btn">
-      <button class="edit-btn-text">Edit</button>
-    </div>
-  </div>
       </header>
 
       <div class="container">

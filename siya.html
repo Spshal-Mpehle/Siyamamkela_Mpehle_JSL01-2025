@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Page Styling:Links to external CSS for page styling and fonts-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styling.css" />
+    <link
+      rel="icon"
+      href="./assets/favicon.svg"
+      sizes="32x32"
+      type="image/x-icon"
+    />
+    <script defer src="./scripts.js" type="module"></script>
+
+    <title>Kanban Task Management</title>
+  </head>
+
+  <body>
+    <!-- Navigation Sidebar: Contains the logo, navigation links for boards, and theme toggle. -->
+     <nav class="sidebar" id="side-bar-div">
+    <div id="side-logo-div">
+      <img id="logo" src="./assets/logo-light.svg" alt="logo" />
+    </div>
+
+    <div class="boards-nav-links-div" id="boards-nav-links-div">
+      <h4 id="headline-sidepanel">ALL BOARDS (1)</h4>
+      <button class="board-btn">Launch Career</button>
+    </div>
+
+    <div class="side-bar-bottom">
+      <div class="toggle-div">
+        <label class="switch">
+          <input type="checkbox" id="theme-toggle" />
+          <span class="slider round"></span>
+        </label>
+        <span class="toggle-text">Dark Mode</span>
+      </div>
+
+      <div class="hide-sidebar-div">
+        <button id="hide-sidebar-btn" class="hide-sidebar-btn">
+          <img
+            src="./assets/favicon.svg"
+            alt="hide-sidebar"
+            class="hide-sidebar-icon"
+          />
+        </button>
+      </div>
+    </div>
+  </nav>
+    <!-- Main Layout: Header with board title, add task button, and main content area for task columns. -->
+    <div id="layout">
+      <header id="header" class="sticky-header">
+        <div class="header-name-div">
+          <img
+            src="./assets/favicon.svg"
+            alt="logo-mobile"
+            class="logo-mobile"
+          />
+          <h2 class="header-board-name" id="header-board-name">
+            Launch Career
+          </h2>
+        <div>
+        <label>
+          <input type="checkbox" id="theme-toggle"> Toggle Dark Mode
+        </label>
+    <button id="add-task-btn" class="add-task-btn">
+      <span class="add-task-text">Add Task</span>
+    </button>
+    <div id="edit-btn" class="edit-btn">
+      <button class="edit-btn-text">Edit</button>
+    </div>
+  </div>
+      </header>
+
+      <div class="container">
+        <main class="card-column-main">
+          <!-- Task Columns: Display tasks grouped by status (TODO, DOING, DONE). -->
+          <div class="column-div" data-status="todo">
+            <div id="todo-head-div" class="column-head-div">
+              <span class="dot" id="todo-dot"></span>
+              <h4 id="todoText" class="columnHeader">TODO (2)</h4>
+            </div>
+            <!-- Tasks container for TODO -->
+            <div class="tasks-container"></div>
+          </div>
+
+          <!-- DOING Column -->
+          <div class="column-div" data-status="doing">
+            <div id="doing-head-div" class="column-head-div">
+              <span class="dot" id="doing-dot"></span>
+              <h4 id="doingText" class="columnHeader">DOING (2)</h4>
+            </div>
+            <!-- Tasks container for DOING -->
+            <div class="tasks-container"></div>
+          </div>
+
+          <!-- DONE Column -->
+          <div class="column-div" data-status="done">
+            <div id="done-head-div" class="column-head-div">
+              <span class="dot" id="done-dot"></span>
+              <h4 id="doneText" class="columnHeader">DONE (2)</h4>
+            </div>
+            <!-- Tasks container for DONE -->
+            <div class="tasks-container"></div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <!-- Modal: Displays each tasks details when the task is clicked -->
+    <dialog id="task-modal">
+      <form method="dialog" class="task-form">
+        <div class="modal-header">
+          <h3>Task</h3>
+          <button type="button" class="close-modal-btn" id="close-modal-button">
+            &times;
+          </button>
+        </div>
+
+        <label for="task-title">Title</label>
+        <input type="text" id="task-title" name="task-title" required />
+
+        <label for="task-desc">Description</label>
+        <textarea id="task-desc" name="description" row="4"></textarea>
+
+        <label for="task-status">Status</label>
+        <select id="task-status" name="status" required>
+          <option value="todo">TODO</option>
+          <option value="doing">DOING</option>
+          <option value="done">DONE</option>
+        </select>
+
+        <label for="task-priority">Priority</label>
+        <select id="task-priority" name="priority" required>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+      </form>
+    </dialog>
+  </body>
+</html>

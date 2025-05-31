@@ -1,0 +1,496 @@
+/* ===================
+   Root CSS Variables 
+   ===================
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #ffffff;
+  --secondary-color: #f4f7fd;
+  --primary-font-color: #000000;
+  --secondary-font-color: #828fa3;
+  --sidebar-width: 300px;
+  --primary-box-shadow: 0 4px 6px rgba(54, 78, 126, 0.1);
+}
+/* ===================
+   Global Styles 
+   ===================
+*/
+
+body {
+  margin: 0;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: var(--secondary-color);
+  color: var(--primary-font-color);
+  font-size: 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+/* ===================
+   Sidebar Styles 
+   ===================
+*/
+
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--primary-color);
+  border-right: 1px solid #e4ebfa;
+  box-shadow: var(--primary-box-shadow);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.sidebar-logo-div {
+  margin: 33px 113px 54px 34px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.hide-sidebar-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 30px;
+  height: 30px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#hide-sidebar-btn {
+  width: 40px;
+  height: 30px;
+  background-color: var(--secondary-font-color);
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 0 20px 20px 0;
+  bottom: 45px;
+  position: absolute;
+  display: none;
+}
+
+body.dark-mode {
+  --bg-color: #1e1e1e;
+  --text-color: var(--secondary-font-color);
+}
+
+.side-bar-bottom {
+      position: absolute;
+      bottom: 1rem;
+      width: 100%;
+    }
+
+    .toggle-div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 20px;
+    }
+.switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 2px;
+      bottom: 2px;
+      background-color: var(--secondary-font-color);
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: var(--primary-font-color);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(20px);
+    }
+      
+
+#logo {
+  width: 100%;
+}
+
+.boards-nav-links-div {
+  display: flex;
+  flex-direction: column;
+  color: var(--primary-font-color);
+}
+
+#headline-sidepanel {
+  padding: 0 12px 0 50px;
+}
+
+h4 {
+  color: var(--secondary-font-color);
+  font-size: 0.75rem;
+  letter-spacing: 0.125rem;
+}
+
+.board-btn {
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #635fc7;
+  color: #fff;
+  border: none;
+  border-radius: 0 100px 100px 0;
+  height: 47px;
+  width: 275px;
+  padding: 28px 12px 28px 50px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* ===================
+   Main Content Styles 
+   ===================
+*/
+#layout {
+  flex: 1;
+  overflow-y: hidden;
+  width: 100%;
+}
+
+/* ===================
+   Header Styles
+   ===================
+*/
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 35px 0 30px;
+  height: 96px;
+  width: 100%;
+  font-size: 1.875rem;
+  font-weight: 700;
+  border-bottom: 1px solid #e4ebfa;
+  color: var(--primary-font-color);
+  background-color: var(--primary-color);
+  box-shadow: var(--primary-box-shadow);
+}
+
+.header-name-div {
+  display: flex;
+  align-items: center;
+}
+
+.logo-mobile {
+  display: none;
+}
+
+/* ===============
+   Board Columns
+================ */
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 34px;
+  box-sizing: border-box;
+}
+
+.card-column-main {
+  display: grid;
+  grid-template-columns: repeat(
+    3,
+    minmax(0, 304px)
+  ); /* Three columns with a minimum width of 304px */
+  gap: 8px; /* Space between columns */
+}
+
+.column-div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 12px;
+}
+
+.column-head-div {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between dot and column title */
+}
+
+.columnHeader {
+  font-size: 0.75rem;
+  letter-spacing: 0.125rem;
+  color: var(--secondary-font-color);
+  margin: 0;
+}
+
+/* Status Dots */
+.dot {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%; /* Circular shape */
+  display: inline-block;
+}
+
+#todo-dot {
+  background-color: #49c4e5;
+}
+
+#doing-dot {
+  background-color: #8471f2;
+}
+
+#done-dot {
+  background-color: #219c90;
+}
+
+/* ===================
+   Card Styles
+   ===================
+*/
+
+.tasks-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-div {
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  background-color: var(--primary-color);
+  border-radius: 12px;
+  box-shadow: var(--primary-box-shadow);
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 0.9375rem;
+  font-weight: bold;
+  color: var(--primary-font-color);
+  width: 100%;
+  height: 60px;
+}
+
+/* ====================
+   Heading Styles
+   ===================
+*/
+
+.h2 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+/* ====================
+   Responsive Styles
+   ===================
+*/
+
+/********* Tablet and Mobile Styles *********/
+@media screen and (max-width: 1024px) {
+  .sidebar {
+    display: none; /* Hide sidebar on tablet and mobile */
+  }
+
+  .sidebar.show-sidebar {
+    display: flex !important; /* Show sidebar when class is added */
+    position: fixed;
+    height: auto;
+  }
+
+  #side-logo-div {
+    display: block;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+  }
+  body {
+    font-size: 0.8rem; /* Adjust font size for smaller screens */
+  }
+
+  .board-btn {
+    font-size: 0.8rem;
+    padding-left: 15px;
+    margin-right: 15px;
+    font-weight: 700;
+  }
+
+  .container {
+    padding: 0;
+    width: 100%;
+    align-items: center;
+  }
+
+  .card-column-main {
+    grid-template-columns: repeat(
+      2,
+      minmax(0, 360px)
+    ); /* Single column on smaller screens */
+  }
+
+  header {
+    height: 63px;
+    padding: 0 10px 0 20px;
+    border: none;
+  }
+
+  #header-board-name {
+    font-size: 1.25rem;
+  }
+
+  .task-div {
+    width: 100%;
+  }
+
+  .columnHeader {
+    font-size: 0.75rem;
+  }
+
+  .dot {
+    height: 8px;
+    width: 8px;
+  }
+
+  .column-head-div {
+    gap: 8px;
+  }
+
+  .column-div {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .card-column-main {
+    grid-template-columns: minmax(
+      0,
+      380px
+    ); /* Stack columns in single column */
+  }
+
+  .column-div {
+    padding: 24px;
+  }
+}
+
+/* ===================
+   Modal Styles
+   ===================
+*/
+dialog {
+  position: fixed;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: none;
+}
+
+/* Style the modal box */
+#task-modal::backdrop {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+#task-modal {
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  border-radius: 8px;
+  width: 90%;
+  max-width: 600px;
+  padding: 24px;
+  background-color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #ea5555;
+  transition: transform 0.2s ease-in-out, font-weight 0.2s ease-in-out;
+  transition-delay: 0.1s; /* Delay before scaling */
+}
+
+.close-btn:hover {
+  transform: scale(1.15);
+  font-weight: 600;
+}
+
+.close-btn:focus {
+  outline: none;
+}
+
+/* Form Styles */
+form label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.75em;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  color: #828fa3;
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #828fa3;
+  border-radius: 6px;
+  font-family: inherit;
+  resize: vertical;
+  font-size: 0.875rem;
+  color: #000;
+  background-color: #f4f7fd;
+}
+
+form select {
+  appearance: none; /* Remove native arrow */
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="%23828FA3" stroke-width="3" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>')
+    no-repeat right 0.75rem center;
+
+  background-size: 1.4rem;
+  padding-right: 1rem;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  border-color: #635fc7;
+  outline: none;
+}

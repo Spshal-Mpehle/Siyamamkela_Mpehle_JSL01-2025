@@ -1,27 +1,63 @@
-<html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<!-- Document Type Declaration: HTML5 -->
   <head>
-    <meta />
-    <meta />
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel = "stylesheet" href="./styling.css" />
+    <link rel ="icon" 
+    href="assets/favicon.svg"
+    sizes="32x32" 
+    type="image/x-icon" 
+    />
+    <title>Kanban Board</title>
   </head>
 
   <body>
     <!-- Navigation Sidebar: Contains the logo, navigation links for boards, and theme toggle. -->
-    <nav>
-      <div>
-        <h4>ALL BOARDS (1)</h4>
-        <button>Launch Career</button>
-      </div>
-    </nav>
+    <nav class="sidebar" id="side-bar-div">
+      <!-- Navigation Links: Contains links to different boards and a toggle for dark mode. -->
+       <div class=" boards-nav-links-div" id="boards-nav-links-div">
+        <h4 id="headline-sidepanel">BOARDS</h4>
+       </div>
 
+      <div class ="side-bar-bottom">
+        <div class="toggle-div"> 
+        <img src="assets/images/icon-light.svg" 
+        id="icon-light"
+        alt="Light Mode"
+         />
+
+         <input type="checkbox" id="switch" />
+          <label for="switch" class="label-checkbox-theme"></label>
+          <img src="assets/images/icon-dark.svg"
+          id="icon-dark"
+          alt="Dark Mode"
+          />
+       </div>
+       <div class="hide-side-bar-div">
+        <img src="assets/images/icon-close.svg" alt="Close" />
+        <button id="close-button">Close</button>
+       </div>
+      <div>
+  </nav>
+    <button id="show-side-bar-button">Show Sidebar</button>
+    
     <!-- Main Layout: Header with board title, add task button, and main content area for task columns. -->
-    <div>
-      <header>
-        <div>
-          <h2>Launch Career</h2>
+    <div id=" main-layout">
+      <header id="header" class="header">
+        <div class="header=name-div">
+          <img src="assets/images/icon-board.svg" 
+          alt="Board Icon"
+          class="Board Icon" 
+          />
+          <h1>Launch Career</h1>
+          <button>Add Task</button>
         </div>
       </header>
 
+      <!-- Main Content Area: Contains the Kanban board with task columns. -->
       <div>
         <main>
           <!-- Task Columns: Display tasks grouped by status (TODO, DOING, DONE). -->
@@ -58,10 +94,20 @@
             <div>
               <div>Contribute to Open Source Projects 🌐</div>
               <div>Build Portfolio Projects 🛠️</div>
-            </div>
-          </div>
-        </main>
-      </div>
+            </div>  
+         </div>
+       </main> 
+      </div>  
     </div>
+    <!-- Footer: Contains links to GitHub, LinkedIn, and a message about the project. -->
+    <footer>
+      <div>
+        <h4>Made with ❤️ by Siyamamkela</h4>
+        <a href= https://github.com/Spshal-Mpehle/Siyamamkela_Mpehle_JSL01-2025/blob/main/README.md>GitHub</a>
+        <a href= https://www.linkedin.com/in/speshal-mpehle-0b1a4b1b2/>LinkedIn</a>"
+      </div>
+      <div>
+        <h4>Kanban Board</h4>
+        <p>All rights reserved &copy; 2023</p>
   </body>
 </html>

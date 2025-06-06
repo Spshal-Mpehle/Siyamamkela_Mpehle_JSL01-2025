@@ -6,8 +6,11 @@ let lastFocusedElement = null;
 
 async function initApp() {
   try {
-    const kanbanData = await fetchTaskFromAPI();
-    localStorage.setItem("kanbanTasks", JSON.stringify(kanbanData));
+    let kanbanData = JSON.parse(localStorage.getItem("kanbanTasks"));
+    if (!kanbanData) {
+      kanbanData = await fetchTaskFromAPI();
+      localStorage.setItem("kanbanTasks", JSON.stringify(kanbanData));
+    }
     currentTasks = kanbanData;
     clearExistingTasks();
     renderTasks(currentTasks);
@@ -18,19 +21,7 @@ async function initApp() {
     console.error("Initialization Error:", error);
   }
 
-  document
-    .getElementById("add-task-btn")
-    .addEventListener("click", openNewTaskModal);
-  document.getElementById("edit-btn").addEventListener("click", () => {
-    if (currentTask) openTaskModal(currentTask);
-  });
-
-  document
-    .getElementById("task-form")
-    .addEventListener("submit", handleTaskSave);
-  document
-    .getElementById("delete-task-btn")
-    .addEventListener("click", handleTaskDelete);
+  setupSidebarToggle();
 
   document
     .getElementById("task-form")
@@ -95,6 +86,27 @@ function handleTaskSave(event) {
   clearExistingTasks();
   renderTasks(currentTasks);
   document.getElementById("task-modal").close();
+}
+
+function handleTaskDelete() {
+  if (!currentTask) return;
+
+  const confirmed = confirm("Are you sure?");
+  if (!confirmed) return;
+
+  // Remove the task from the currentTasks array
+  currentTasks = currentTasks.filter((task) => task.id !== currentTask.id);
+
+  // Update localStorage
+  localStorage.setItem("kanbanTasks", JSON.stringify(currentTasks));
+
+  // Clear the modal and the  interface
+  clearExistingTasks();
+  renderTasks(currentTasks);
+  document.getElementById("task-modal").close();
+
+  // Reset state
+  currentTask = null;
 }
 
 function renderTasks(tasks) {
@@ -189,8 +201,12 @@ function setupThemeToggle() {
   if (savedTheme === "dark") {
     document.body.classList.add("dark-theme");
     if (toggle) toggle.checked = true;
+  } else {
+    document.body.classList.remove("dark-theme");
+    if (toggle) toggle.checked = false;
   }
 
+  // Listen for toggle changes
   if (toggle) {
     toggle.addEventListener("change", function () {
       if (this.checked) {
@@ -203,6 +219,25 @@ function setupThemeToggle() {
     });
   }
 }
-
 // Initialize the app when DOM is fully ready
 document.addEventListener("DOMContentLoaded", initApp);
+
+function setupSidebarToggle() {
+  const sidebar = document.getElementById("side-bar-div");
+  const hideBtn = document.getElementById("hide-sidebar-btn");
+  const showBtn = document.getElementById("show-sidebar-btn");
+
+  // Hide sidebar
+  hideBtn.addEventListener("click", () => {
+    sidebar.style.display = "none";
+    showBtn.style.display = "inline-block";
+    document.body.classList.add("sidebar-hidden");
+  });
+
+  // Show sidebar
+  showBtn.addEventListener("click", () => {
+    sidebar.style.display = "block";
+    showBtn.style.display = "none";
+    document.body.classList.remove("sidebar-hidden");
+  });
+}

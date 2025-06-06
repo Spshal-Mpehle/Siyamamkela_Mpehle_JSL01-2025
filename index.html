@@ -22,6 +22,8 @@
 
   <body>
     <!-- Navigation Sidebar: Contains the logo, navigation links for boards, and theme toggle. -->
+
+    <!--Sidebar-->
     <nav class="sidebar" id="side-bar-div">
       <div id="side-logo-div">
         <img id="logo" src="./assets/logo-light.svg" alt="Kanban Logo" />
@@ -34,45 +36,44 @@
 
       <div class="side-bar-bottom">
         <div class="toggle-div">
-          <label class="switch">
+          <label class="switch" aria-label="Toggle dark mode">
             <input type="checkbox" id="theme-toggle" />
-            <span class="slider round"></span>
+            <span class="slider"></span>
           </label>
           <span class="toggle-text">Dark Mode</span>
         </div>
-
-        <div class="hide-sidebar-div">
-          <button id="hide-sidebar-btn" class="hide-sidebar-btn" type="button">
-            <img
-              src="./assets/favicon.svg"
-              alt="Hide sidebar"
-              class="hide-sidebar-icon"
-            />
-          </button>
-        </div>
+        <button
+          id="hide-sidebar-btn"
+          class="hide-sidebar-btn"
+          type="button"
+          aria-label="Hide sidebar"
+        >
+          <img
+            src="./assets/favicon.svg"
+            alt="Hide sidebar"
+            class="hide-sidebar-icon"
+          />
+        </button>
       </div>
     </nav>
+    <!-- Show Sidebar Button-->
+    <button id="show-sidebar-btn" class="show-sidebar-btn">Show Sidebar</button>
 
     <!-- Main Layout: Header with board title, add task button, and main content area for task columns. -->
     <div id="layout">
       <header id="header" class="sticky-header">
         <div class="header-name-div">
-          <img
-            src="./assets/favicon.svg"
-            alt="Logo Mobile"
-            class="logo-mobile"
-          />
           <h2 class="header-board-name" id="header-board-name">
             Launch Career
           </h2>
         </div>
 
         <div>
-          <button id="add-task-btn" class="add-task-btn" type="button">
-            <span class="add-task-text">Add Task</span>
-          </button>
+          <button id="add-task-btn" class="add-task-btn">+ Add Task</button>
           <div id="edit-btn" class="edit-btn">
-            <button class="edit-btn-text" type="button">Edit</button>
+            <button class="edit-btn-text" type="button" aria-label="Edit board">
+              Edit
+            </button>
           </div>
         </div>
       </header>
@@ -113,11 +114,16 @@
     </div>
 
     <!-- Modal: Displays each task's details when clicked -->
-    <dialog id="task-modal">
+    <dialog id="task-modal" aria-labelledby="task-modal-title">
       <form method="dialog" class="task-form" id="task-form">
         <div class="modal-header">
-          <h3>Task</h3>
-          <button type="button" class="close-modal-btn" id="close-modal-button">
+          <h3 id="modal-title">Edit Task</h3>
+          <button
+            type="button"
+            class="close-modal-btn"
+            id="close-modal-button"
+            aria-label="Close"
+          >
             &times;
           </button>
         </div>
@@ -141,7 +147,13 @@
           <option value="medium">Medium</option>
           <option value="high">High</option>
         </select>
-        <button type="submit" id="save-task-btn">Save Task</button>
+
+        <div class="modal-actions">
+          <button type="submit" id="save-task-btn">Create Task</button>
+          <button type="button" id="delete-task-btn" class="danger">
+            Delete Task
+          </button>
+        </div>
       </form>
     </dialog>
   </body>
